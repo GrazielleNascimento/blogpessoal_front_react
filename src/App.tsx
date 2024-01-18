@@ -1,27 +1,27 @@
-import './App.css';
-import Footer from './components/footer/Footer';
-import Login from './components/login/Login';
-import Navbar from './components/navBar/NavBar';
-import Home from './paginas/home/Home';
-
+import React from 'react';
+import UserProvider from './contexts/UserContext';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/home/Home';
+import Login from './pages/login/Login';
 
 
 function App() {
+
   return (
-    <>
-    <BrowserRouter>
-        <Navbar />
-          <div className='min-h-[80vh]'>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/home" element={<Home />} />
-            </Routes>
-          </div>
-          <Footer />
-        </BrowserRouter>
-    </>
-);
+    <UserProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<Home />} />
+        </Routes>
+
+      </BrowserRouter>
+
+    </UserProvider>
+  );
 }
+
 export default App;
+
+//Este é um exemplo de um componente React chamado App que é o componente raiz do aplicativo. Ele usa o React Router DOM para criar rotas para diferentes páginas em nosso aplicativo, e também usa um contexto chamado UserContext, que foi definido em outro lugar do aplicativo.
