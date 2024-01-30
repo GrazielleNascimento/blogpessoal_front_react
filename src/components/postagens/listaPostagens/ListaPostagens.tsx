@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Dna } from 'react-loader-spinner';
+import { Triangle } from 'react-loader-spinner';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 import Postagem from '../../../models/Postagem';
@@ -44,15 +44,16 @@ function ListaPostagens() {
   return (
     <>
       {postagens.length === 0 && (
-        <Dna
-          visible={true}
-          height="200"
-          width="200"
-          ariaLabel="dna-loading"
-          wrapperStyle={{}}
-          wrapperClass="dna-wrapper mx-auto"
-        />
-      )}
+        <Triangle
+        visible={true}
+        color= "purple"
+        height="200"
+        width="2000"
+        ariaLabel="triangle-loading"
+        wrapperStyle={{}}
+        wrapperClass="triangle-wrapper mx-auto"
+      />
+    )}
       <div className='container mx-auto my-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
         {postagens.map((postagem) => (
           <CardPostagem key={postagem.id} post={postagem} />
